@@ -19,7 +19,11 @@ function Profile(props) {
                 className={ProfileStyle.userInfo}
                 user={props.user.info}
             />
-            <Posts className={ProfileStyle.posts} id={props.user.info.id} />
+            <Posts
+                className={ProfileStyle.posts}
+                id={props.user.info.id}
+                posts={props.posts}
+            />
         </main>
     );
 }

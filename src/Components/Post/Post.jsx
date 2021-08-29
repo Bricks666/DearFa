@@ -1,6 +1,5 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { MyContext } from "../../Context";
 import { LikeContainer } from "../Like/LikeContainer";
 import { Picture } from "../Picture/Picture";
 import { ParseDate } from "./ParseDate";
@@ -27,18 +26,11 @@ function Post(props) {
             </Link>
 
             <p className={PostStyle.content}>{props.post.content.text}</p>
-            <MyContext.Consumer>
-                {(value) => {
-                    return (
-                        <LikeContainer
-                            className={PostStyle.like}
-                            status={props.post.like}
-                            postId={props.post.id}
-                            dispatch={value.dispatch}
-                        />
-                    );
-                }}
-            </MyContext.Consumer>
+            <LikeContainer
+                className={PostStyle.like}
+                status={props.post.like}
+                postId={props.post.id}
+            />
         </article>
     );
 }

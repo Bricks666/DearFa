@@ -8,10 +8,7 @@ export function FormField(props) {
     switch (props.fieldInfo.type) {
         case "checkbox":
             field = (
-                <CheckboxContainer
-                    value={props.fieldInfo.value}
-                    dispatch={props.dispatch}
-                >
+                <CheckboxContainer value={props.fieldInfo.value}>
                     {props.fieldInfo.content}
                 </CheckboxContainer>
             );
@@ -25,7 +22,6 @@ export function FormField(props) {
                     className={props.className}
                     fieldInfo={props.fieldInfo}
                     actionCreator={props.actionCreator}
-                    dispatch={props.dispatch}
                 />
             );
             break;

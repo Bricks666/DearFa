@@ -1,17 +1,27 @@
 import { StandardField } from "./StandardFields";
+import { MyContext } from "../../../Context";
 
 export const StandardFieldContainer = (props) => {
-    const onChange = (text) => {
-        const action = props.actionCreator(props.fieldInfo.content, text);
-
-        props.dispatch(action);
-    };
-
     return (
-        <StandardField
-            className={props.className}
-            fieldInfo={props.fieldInfo}
-            inputField={onChange}
-        />
+        <MyContext.Consumer>
+            {(value) => {
+                const onChange = (text) => {
+                    const action = props.actionCreator(
+                        props.fieldInfo.content,
+                        text
+                    );
+
+                    value.dispatch(action);
+                };
+
+                return (
+                    <StandardField
+                        className={props.className}
+                        fieldInfo={props.fieldInfo}
+                        inputField={onChange}
+                    />
+                );
+            }}
+        </MyContext.Consumer>
     );
 };
