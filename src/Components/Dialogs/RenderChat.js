@@ -5,7 +5,7 @@ export const RenderChat = (chats, dispatch) => {
   return chats.map((chat) => {
     return (
       <Route path={`/dialogs/${chat.id}`}>
-        <Chat chat={chat} dispatch={dispatch} key={chat.id} />
+        <Chat chat={chat} />
       </Route>
     );
   });

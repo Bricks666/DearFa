@@ -11,7 +11,6 @@ export function Login(props) {
             <form className={LoginStyle.form}>
                 {RenderFields(
                     props.fields,
-                    props.dispatch,
                     inputLoginActionCreator,
                     LoginStyle.field
                 )}

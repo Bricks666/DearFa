@@ -16,7 +16,7 @@ function Dialogs(props) {
                 className={DialogsStyle.dialogList}
                 dialogs={props.chats}
             />
-            <Switch>{RenderChat(props.chats, props.dispatch)}</Switch>
+            <Switch>{RenderChat(props.chats)}</Switch>
         </main>
     );
 }

@@ -19,12 +19,7 @@ function Profile(props) {
                 className={ProfileStyle.userInfo}
                 user={props.user.info}
             />
-            <Posts
-                className={ProfileStyle.posts}
-                posts={props.posts}
-                id={props.user.info.id}
-                dispatch={props.dispatch}
-            />
+            <Posts className={ProfileStyle.posts} id={props.user.info.id} />
         </main>
     );
 }

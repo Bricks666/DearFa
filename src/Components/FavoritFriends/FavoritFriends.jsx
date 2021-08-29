@@ -18,7 +18,6 @@ function FavoritFriends(props) {
                     className={FavoritFriendsStyle.friendsList}
                     size="small"
                     friends={friends}
-                    dispatch={props.dispatch}
                 />
             </aside>
         );

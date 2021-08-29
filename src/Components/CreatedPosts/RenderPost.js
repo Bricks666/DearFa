@@ -1,7 +1,7 @@
 import { Post } from "../Post/Post";
 
-export const RenderPost = (posts, dispatch) => {
+export const RenderPost = (posts) => {
   return posts.map((post) => {
-    return <Post post={post} dispatch={dispatch} key={post.id} />;
+    return <Post post={post} key={post.id} />;
   });
 };
