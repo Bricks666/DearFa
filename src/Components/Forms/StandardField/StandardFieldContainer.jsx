@@ -1,9 +1,9 @@
 import { StandardField } from "./StandardFields";
-import { MyContext } from "../../../Context";
+import { Consumer } from "../../../Context";
 
 export const StandardFieldContainer = (props) => {
     return (
-        <MyContext.Consumer>
+        <Consumer>
             {(value) => {
                 const onChange = (text) => {
                     const action = props.actionCreator(
@@ -22,6 +22,6 @@ export const StandardFieldContainer = (props) => {
                     />
                 );
             }}
-        </MyContext.Consumer>
+        </Consumer>
     );
 };

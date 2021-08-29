@@ -1,11 +1,11 @@
-import { MyContext } from "../../Context";
+import { Consumer } from "../../Context";
 import { addPostActionCreator } from "../../Redux/ActionCreators/addPost";
 import { inputPostActionCreator } from "../../Redux/ActionCreators/inputPostActionCreator";
 import { MakePost } from "./MakePost";
 
 export const MakePostContainer = (props) => {
     return (
-        <MyContext.Consumer>
+        <Consumer>
             {(value) => {
                 const addPost = () => {
                     const action = addPostActionCreator();
@@ -30,6 +30,6 @@ export const MakePostContainer = (props) => {
                     />
                 );
             }}
-        </MyContext.Consumer>
+        </Consumer>
     );
 };

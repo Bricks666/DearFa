@@ -1,10 +1,10 @@
 import { FriendsListItem } from "./FriendListItem";
 import { removeFriendActionCreator } from "../../../Redux/ActionCreators/removeFriend";
-import { MyContext } from "../../../Context";
+import { Consumer } from "../../../Context";
 
 export const FriendListItemContainer = (props) => {
     return (
-        <MyContext.Consumer>
+        <Consumer>
             {(value) => {
                 const removeFriend = (id) => {
                     const action = removeFriendActionCreator(id);
@@ -21,6 +21,6 @@ export const FriendListItemContainer = (props) => {
                     />
                 );
             }}
-        </MyContext.Consumer>
+        </Consumer>
     );
 };

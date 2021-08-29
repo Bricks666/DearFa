@@ -1,11 +1,11 @@
 import { addMessageActionCreator } from "../../Redux/ActionCreators/addMessage";
 import { inputMessageActionCreator } from "../../Redux/ActionCreators/inputMessageActionCreator";
 import { MakeMessage } from "./MakeMessage";
-import { MyContext } from "../../Context";
+import { Consumer } from "../../Context";
 
 export const MakeMessageContainer = (props) => {
     return (
-        <MyContext.Consumer>
+        <Consumer>
             {(value) => {
                 const addMessage = () => {
                     const action = addMessageActionCreator();
@@ -30,6 +30,6 @@ export const MakeMessageContainer = (props) => {
                     />
                 );
             }}
-        </MyContext.Consumer>
+        </Consumer>
     );
 };

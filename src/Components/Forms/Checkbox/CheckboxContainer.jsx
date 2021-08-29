@@ -1,10 +1,10 @@
 import { inputLoginActionCreator } from "../../../Redux/ActionCreators/inputLoginActionCreator";
-import { MyContext } from "../../../Context";
+import { Consumer } from "../../../Context";
 import { Checkbox } from "./Checkbox";
 
 export const CheckboxContainer = (props) => {
     return (
-        <MyContext.Consumer>
+        <Consumer>
             {(value) => {
                 const toggleLike = (isChecked) => {
                     const action = inputLoginActionCreator(
@@ -25,6 +25,6 @@ export const CheckboxContainer = (props) => {
                     </Checkbox>
                 );
             }}
-        </MyContext.Consumer>
+        </Consumer>
     );
 };

@@ -1,10 +1,10 @@
 import { Like } from "./Like";
 import { toggleLikeActionCreator } from "../../Redux/ActionCreators/toggleLike";
-import { MyContext } from "../../Context";
+import { Consumer } from "../../Context";
 
 export const LikeContainer = (props) => {
     return (
-        <MyContext.Consumer>
+        <Consumer>
             {(value) => {
                 const toggle = (id) => {
                     const action = toggleLikeActionCreator(props.postId);
@@ -20,6 +20,6 @@ export const LikeContainer = (props) => {
                     />
                 );
             }}
-        </MyContext.Consumer>
+        </Consumer>
     );
 };

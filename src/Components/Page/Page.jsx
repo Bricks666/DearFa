@@ -5,13 +5,13 @@ import { Navigation } from "../Navigation/Navigation";
 import { FavoritFriends } from "../FavoritFriends/FavoritFriends";
 import { Main } from "../Main/Main";
 
-import { MyContext } from "../../Context";
+import { Provider } from "../../Context";
 
 import PageStyle from "./Page.module.css";
 
 function Page(props) {
     return (
-        <MyContext.Provider value={props.store}>
+        <Provider store={props.store}>
             <Router>
                 <div className={PageStyle.page}>
                     <h1 className="visibility-hidden">Dear.Fa</h1>
@@ -35,7 +35,7 @@ function Page(props) {
                     </Switch>
                 </div>
             </Router>
-        </MyContext.Provider>
+        </Provider>
     );
 }
 
