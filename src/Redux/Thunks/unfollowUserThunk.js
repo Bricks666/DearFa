@@ -4,15 +4,15 @@ import { startFollowingUser } from "../Actions/Loadings/startFollowingUser";
 import { unfollowUserActionCreator } from "../Actions/Users/unfollowUser";
 
 export const unfollowUserThunk = (userId) => {
-  return async (dispatch) => {
-    dispatch(startFollowingUser());
+	return async (dispatch) => {
+		dispatch(startFollowingUser());
 
-    const response = await unfollow(userId);
+		const response = await unfollow(userId);
 
-    if (response.resultCode === 0) {
-      dispatch(unfollowUserActionCreator(userId));
-    }
+		if (response.resultCode === 0) {
+			dispatch(unfollowUserActionCreator(userId));
+		}
 
-    dispatch(endFollowingUser(userId));
-  };
+		dispatch(endFollowingUser(userId));
+	};
 };

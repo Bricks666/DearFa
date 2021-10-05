@@ -15,23 +15,23 @@ import { loadings } from "./Reducers/loadings";
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 const reducers = combineReducers({
-  profile: profileReducers,
-  auth: authReducers,
-  chats: chatsReducers,
-  posts: postsReducers,
-  friends: friendsReducer,
-  users: usersReducers,
-  login: loginReducers,
-  registration: registrationReducers,
-  navigation: navigationReducers,
-  favoriteFriends: favoriteFriends,
-  loadings: loadings,
+	profile: profileReducers,
+	auth: authReducers,
+	chats: chatsReducers,
+	posts: postsReducers,
+	friends: friendsReducer,
+	users: usersReducers,
+	login: loginReducers,
+	registration: registrationReducers,
+	navigation: navigationReducers,
+	favoriteFriends: favoriteFriends,
+	loadings: loadings,
 });
 
 const store = createStore(
-  reducers,
-  initialState,
-  composeEnhancers(applyMiddleware(thunk))
+	reducers,
+	initialState,
+	composeEnhancers(applyMiddleware(thunk))
 );
 
 window.store = store;
