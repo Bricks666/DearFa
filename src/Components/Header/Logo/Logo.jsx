@@ -1,16 +1,16 @@
 import classNames from "classnames";
-import React from "react";
+import React, { memo } from "react";
 
 import { Link } from "react-router-dom";
 
 import LogoStyle from "./Logo.module.css";
 
-const Logo = ({ className, alt, src }) => {
+const Logo = memo(({ className, alt, src }) => {
 	return (
 		<Link className={classNames(LogoStyle.logo, className)} to="/">
-			<img className={LogoStyle.image ?? ""} src={src ?? ""} alt={alt ?? ""} />
+			<img className={LogoStyle.image} src={src ?? ""} alt={alt ?? ""} />
 		</Link>
 	);
-};
+});
 
 export { Logo };

@@ -18,7 +18,9 @@ export const Companion = memo(({ className, dialogId }) => {
 			<FullName className={CompanionStyle.name} id={companion.id}>
 				{companion.name}
 			</FullName>
-			<Date className={CompanionStyle.date} date={companion.lastActive} />
+			<Date className={CompanionStyle.date} date={companion.lastActive}>
+				Последний раз в сети:
+			</Date>
 		</header>
 	);
 });

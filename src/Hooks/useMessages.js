@@ -6,5 +6,11 @@ export const useMessages = (dialogId) => {
 		messagesSelectors.getDialogMessages(state, dialogId)
 	);
 
-	return { messages };
+	const totalMessageCount = useSelector((state) =>
+		messagesSelectors.getDialogTotalCount(state, dialogId)
+	);
+
+	const allMessagesLoaded = totalMessageCount === messages.length;
+	const currentPage = Math.ceil(messages.length / 10);
+	return { messages, totalMessageCount, allMessagesLoaded, currentPage };
 };

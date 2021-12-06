@@ -130,7 +130,7 @@ export const api = {
 			})
 		).data;
 	},
-	async getMessagesWith(id, page, count = 20) {
+	async getMessagesWith(id, page, count = 10) {
 		return (
 			await instance.get(`dialogs/${id}/messages?page=${page}&count=${count}`, {
 				withCredentials: true,

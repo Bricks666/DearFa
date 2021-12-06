@@ -11,7 +11,7 @@ export const loadMessagesThunk = (userId, page) => {
 			dispatch(startLoadingMessages());
 			const response = await api.getMessagesWith(userId, page);
 			console.log(response);
-			dispatch(setMessages(+userId, response.items));
+			dispatch(setMessages(+userId, response.items, response.totalCount));
 		} catch (e) {
 			console.log(e.message);
 		} finally {

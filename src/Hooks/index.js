@@ -25,3 +25,4 @@ export { useCompanion } from "./useCompanion";
 export { useLoadMessages } from "./useLoadMessages";
 export { useSendMessage } from "./useSendMessage";
 export { useStartFrom } from "./useStartFrom";
+export { useScrollObserver } from "./useScrollObserver";

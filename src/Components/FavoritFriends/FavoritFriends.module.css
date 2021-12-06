@@ -1,31 +1,39 @@
 /* LAST COMMUNICATIONS */
 
 .lastCommunications {
-  display: grid;
+	display: grid;
 
-  grid-template-rows: max-content max-content;
+	grid-template-rows: max-content max-content;
 
-  row-gap: 20px;
+	row-gap: 20px;
 
-  padding: 10px 5px;
+	padding: 10px 10px;
 
-  border: 1px solid var(--grey-light);
+	border: 1px solid var(--grey-light);
+
+	border-radius: var(--borderRadius);
+}
+
+/* HEADER */
+.header {
+	font-size: 16px;
+	font-weight: 500;
 }
 
 /* FRIENDS LIST */
 
 .list {
-  display: grid;
+	display: grid;
 
-  grid-template-columns: repeat(3, 1fr);
+	grid-template-columns: repeat(3, 1fr);
 
-  row-gap: 10px;
-  column-gap: 10px;
+	row-gap: 10px;
+	column-gap: 10px;
 
-  width: 100%;
+	width: 100%;
 
-  margin: 0;
-  padding: 0;
+	margin: 0;
+	padding: 0;
 
-  list-style: none;
+	list-style: none;
 }

@@ -1,6 +1,6 @@
 import React, { memo, useCallback } from "react";
 import classNames from "classnames";
-import { useHistory } from "react-router";
+import { useHistory, useParams } from "react-router";
 import {
 	useEscListener,
 	useLoading,
@@ -15,8 +15,9 @@ import { Companion } from "./Companion/Companion";
 import ChatStyle from "./Chat.module.css";
 
 const Chat = memo(({ className }) => {
-	const { loadMessages } = useLoadMessages();
-	const { id } = useParamChangeListener("id", loadMessages);
+	const { id } = useParams();
+	const { loadMessages } = useLoadMessages(id);
+	useParamChangeListener("id", loadMessages);
 	const { LoadingWrapper } = useLoading("loadingMessages");
 	const history = useHistory();
 	useEscListener(
@@ -40,12 +41,12 @@ const Chat = memo(({ className }) => {
 			<Companion className={ChatStyle.header} dialogId={+id} />
 			<LoadingWrapper>
 				<Messages className={ChatStyle.messages} dialogId={+id} />
-				<MakeMessage
-					className={ChatStyle.makeMessage}
-					placeholder="Ваше сообщение"
-					dialogId={+id}
-				/>
 			</LoadingWrapper>
+			<MakeMessage
+				className={ChatStyle.makeMessage}
+				placeholder="Ваше сообщение"
+				dialogId={+id}
+			/>
 		</section>
 	);
 });

@@ -1,34 +1,47 @@
 import { initialState } from "../initialState";
 
-const INIT_MESSAGES = "dearFa/messages/INIT_MESSAGES";
 const SET_MESSAGES = "dearFa/messages/SET_MESSAGES";
 const ADD_MESSAGE = "dearFa/messages/ADD_MESSAGE";
+const ADD_MESSAGES = "dearFa/messages/ADD_MESSAGES";
 
 export default function reducer(state = initialState.messages, action) {
 	switch (action.type) {
-		case INIT_MESSAGES: {
-			if (state[action.payload.dialogId] !== undefined) {
-				return state;
-			}
-
-			return {
-				...state,
-				[action.payload.dialogId]: [],
-			};
-		}
 		case SET_MESSAGES: {
 			return {
 				...state,
-				[action.payload.dialogId]: action.payload.messages,
+				[action.payload.dialogId]: {
+					...state[action.payload.dialogId],
+					totalCount: action.payload.dialog.totalCount,
+					list: [
+						...action.payload.dialog.list,
+						...(state[action.payload.dialogId]?.list || []),
+					],
+				},
 			};
 		}
 		case ADD_MESSAGE: {
 			return {
 				...state,
-				[action.payload.dialogId]: [
+				[action.payload.dialogId]: {
 					...state[action.payload.dialogId],
-					action.payload.message,
-				],
+					list: [
+						...state[action.payload.dialogId].list,
+						action.payload.message,
+					],
+					totalCount: state[action.payload.dialogId].totalCount + 1,
+				},
+			};
+		}
+		case ADD_MESSAGES: {
+			return {
+				...state,
+				[action.payload.dialogId]: {
+					...state[action.payload.dialogId],
+					list: [
+						...action.payload.messages,
+						...state[action.payload.dialogId].list,
+					],
+				},
 			};
 		}
 		default: {
@@ -37,21 +50,15 @@ export default function reducer(state = initialState.messages, action) {
 	}
 }
 
-export const initialMessages = (dialogId) => {
-	return {
-		type: INIT_MESSAGES,
-		payload: {
-			dialogId,
-		},
-	};
-};
-
-export const setMessages = (dialogId, messages) => {
+export const setMessages = (dialogId, messages, totalCount) => {
 	return {
 		type: SET_MESSAGES,
 		payload: {
 			dialogId,
-			messages,
+			dialog: {
+				list: messages,
+				totalCount,
+			},
 		},
 	};
 };
@@ -62,6 +69,16 @@ export const addMessage = (dialogId, message) => {
 		payload: {
 			dialogId,
 			message,
+		},
+	};
+};
+
+export const addMessages = (dialogId, messages) => {
+	return {
+		type: ADD_MESSAGES,
+		payload: {
+			dialogId,
+			messages,
 		},
 	};
 };

@@ -11,21 +11,20 @@ const FavoritFriends = ({ className }) => {
 	const { LoadingWrapper } = useLoading("loadingFavoriteFriends");
 
 	return (
-		<LoadingWrapper>
-			<aside
-				className={classNames(
-					FavoritFriendsStyle.lastCommunications,
-					className
-				)}
-			>
-				<SubsectionHeader>Избранные друзья</SubsectionHeader>
+		<aside
+			className={classNames(FavoritFriendsStyle.lastCommunications, className)}
+		>
+			<LoadingWrapper>
+				<SubsectionHeader className={FavoritFriendsStyle.header}>
+					Избранные друзья
+				</SubsectionHeader>
 				<List
 					className={FavoritFriendsStyle.list}
 					items={friends}
 					Card={FavoritFriendCard}
 				/>
-			</aside>
-		</LoadingWrapper>
+			</LoadingWrapper>
+		</aside>
 	);
 };
 
